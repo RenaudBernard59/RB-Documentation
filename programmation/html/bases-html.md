@@ -335,16 +335,340 @@ Métadonnées sur le contenu et l'auteur de la page.
 * `description` : Résumé concis du document. Est enregistrer par le navigateur si mis dans les favoris ;
 * `generator` : Nom du logiciel qui a générer la page ;
 * `keywords` : Mots clefs séparés par des virgules ;
-* `` : ;
-#### Meta-
+* `creator` (WHATWG spec.) : Nom du créateur du document, personne morale ou physique. Si plusieurs créateurs, plusieurs balises `<meta>`.;
+* `googlebot` (WHATWG spec.) : Synonyme de robots;
+* `publisher` (WHATWG spec.) : ;
+* `robots` (WHATWG spec.) : Permet de dire comment le robot d'indexation doit se comporter i.e. liste de valeurs. [Figure 1];
+* `slurp` (WHATWG spec.) : Synonyme de robots pour Yahoo Search.
+* `viewport` (WHATWG spec.) : Indications sur la taille du viewport (mobiles) [Figure 2]
 
-#### Meta-
+[Figure 1]
+|  **Valeur** | **Description** | **Utilisé par** |
+|  :------ | :------ | :------ |
+|  `index` | Permet au robot d'indexer la page | Tous |
+|  `noindex` | Interdit au robot d'indexer la page | Tous |
+|  `follow` | Permet au robot de suivre les liens contenus dans la page | Tous |
+|  `nofollow` | Interdit au robot de suivre les liens contenus dans la page | Tous |
+|  `none` | Synonyme de noindex, nofollow | Google |
+|  `noodp` | Empêche que la description Open Directory Project si celle-ci est présente, soit affichée dans les résultats du moteur de recherche | Google, Yahoo, Bing |
+|  `noarchive` | Empêche le moteur de recherche de mettre en cache le contenu de la page | Google, Yahoo |
+|  `nosnippet` | Empêche l'affichage de la description de la page dans les résultats du moteur de recherche | Google |
+|  `noimageindex` | Empêche la page d'apparaître en tant que page de référence ayant permis l'indexation de l'image | Google |
+|  `noydir` | Empêche l'utilisation et l'affichage de la description Yahoo Directory parmi les résultats du moteur de recherche, si celle-ci est présente | Yahoo |
+|  `nocache` | Synonyme de noarchive | Bing |
 
-#### Meta-
+[Figure 2]
+| **Valeur** | **Valeurs possibles** | **Description** |
+|  :------ | :------ | :------ |
+|  `width` | un nombre entier positif ou le mot-clé device-width | Définit la largeur, en pixels, de la zone d'affichage (viewport) dans laquelle on veut que le site soit affiché. |
+|  `height` | un nombre entier positif ou le mot-clé device-height | Définit la hauteur, en pixels, de la zone d'affichage (viewport) dans laquelle on veut que le site soit affiché. |
+|  `initial-scale` | un nombre positif entre 0.0 et 10.0 | définit le ratio entre la taille de l'écran du terminal (device-width en portrait ou device-height en paysage) et la taille de la zone d'affichage. |
+|  `maximum-scale` | un nombre positif entre 0.0 et 10.0 | définit la valeur maximale du zoom possible. Doit être supérieur ou égal à minimum-scale, sinon le comportement est indéterminé |
+|  `minimum-scale` | un nombre positif entre 0.0 et 10.0 | définit la valeur minimale du zoom possible. Doit être inférieur ou égal à maximum-scale, sinon le comportement est indéterminé |
+|  `user-scalable` | un booléen (yesou no) | Si la valeur est no, l'utilisateur ne pourra pas zoomer sur le document. Par défaut, la valeur est yes. |
 
-#### Meta-
+#### Meta-scheme
+Défini un schéma de description de métadonnées. Déprécier car jamais vraient usité.
+
+### Généralités sur les balises
+#### Catégories de balises
+
+##### Les couples de balises
+Commence par `<mabalise>` puis se termine par `</mabalise>`. Il faut toujours fermer un couple de balises.
+On peut les imbriquées les unes dans les autres mais il ne faut pas faire de chevauchement :
+
+Exemple
+````html
+Valide
+<balise><machin><truc></truc></machin></balise>
+
+Non valide
+<balise><machin><truc></machin></truc></balise>
+````
+
+#####Les balises auto-fermantes
+Elle ne forme pas de couple et est donc seule : `<mabalise />`
 
 
+##### Les commentaires
+On peur écrire des commentaires dans le HTML. Non interprétés par le navigateur. Permet de donner des informations aux développeurs.
+
+Attention : le code source d'une page web étant publique, il ne faut pas mettre de données sensibles.
+
+Commencent par `<!--`  et se terminet par `-->`.
+
+#### Catégories de contenu (nouvelle classification HTML5)
+
+![Catégories de contenu](https://developer.mozilla.org/@api/deki/files/6244/=Content_categories_venn.png?size=webview)
+
+##### Contenu de méta-données
+Ils changent le comportement ou la présentation du document. 
+
+Exemples :
+* `<base>`
+* `<command>`  
+* `<link>`
+* `<meta>`
+* `<noscript>`
+* `<script>`
+* `<style>`
+* `<title>`
+
+##### Contenu de flux
+Contiennent généralemnt du texte ou du contenu intégré.
+
+Exemples :
+* `<a>`
+* `<abbr>`
+* `<address>`
+* `<article>`
+* `<aside>`
+* `<audio>`
+* `<b>`
+* `<bdo>`
+* `<bdi>`
+* `<blockquote>`
+* `<br>`
+* `<button>`
+* `<canvas>`
+* `<cite>`
+* `<code>`
+* `<command>` 
+* `<data>`
+* `<datalist>`
+* `<del>`
+* `<details>`
+* `<dfn>`
+* `<div>`
+* `<dl>`
+* `<em>`
+* `<embed>`
+* `<fieldset>`
+* `<figure>`
+* `<footer>`
+* `<form>`
+* `<h1>`
+* `<h2>`
+* `<h3>`
+* `<h4>`
+* `<h5>`
+* `<h6>`
+* `<header>`
+* `<hgroup>`
+* `<hr>`
+* `<i>`
+* `<iframe>`
+* `<img>`
+* `<input>`
+* `<ins>`
+* `<kbd>`
+* `<keygen>` 
+* `<label>`
+* `<map>`
+* `<mark>`
+* `<math>`
+* `<menu>`
+* `<meter>`
+* `<nav>`
+* `<noscript>`
+* `<object>`
+* `<ol>`
+* `<output>`
+* `<p>`
+* `<pre>`
+* `<progress>`
+* `<q>`
+* `<ruby>`
+* `<s>`
+* `<samp>`
+* `<script>`
+* `<section>`
+* `<select>`
+* `<small>`
+* `<span>`
+* `<strong>`
+* `<sub>`
+* `<sup>`
+* `<svg>`
+* `<table>`
+* `<template>`
+* `<textarea>`
+* `<time>`
+* `<ul>`
+* `<var>`
+* `<video>`
+* `<wbr>`
+* "texte brut"
+
+##### Contenu sectionnant
+Pour le partitionnement du contenu HTML.
+
+Exemples :
+* `<header>`
+* `<article>`
+* `<aside>`
+* `<nav>`
+* `<section>`
+
+##### Contenu de titre
+Pour définir du contenu sectionnant ou des titres.
+
+Exemples :
+* `<h1>`
+* `<h2>`
+* `<h3>`
+* `<h4>`
+* `<h5>`
+* `<h6>`
+* `<hgroup>`
+
+##### Contenu phrasé
+Pour définir (la sémantique) du texte qu'il contient.
+
+Exemples :
+* `<abbr>`
+* `<audio>`
+* `<b>`
+* `<bdo>`
+* `<br>`
+* `<button>`
+* `<canvas>`
+* `<cite>`
+* `<code>`
+* `<command>` 
+* `<data>`
+* `<datalist>`
+* `<dfn>`
+* `<em>`
+* `<embed>`
+* `<i>`
+* `<iframe>`
+* `<img>`
+* `<input>`
+* `<kbd>`
+* `<keygen>`  
+* `<label>`
+* `<mark>`
+* `<math>`
+* `<meter>`
+* `<noscript>`
+* `<object>`
+* `<output>`
+* `<progress>`
+* `<q>`
+* `<ruby>`
+* `<samp>`
+* `<script>`
+* `<select>`
+* `<small>`
+* `<span>`
+* `<strong>`
+* `<sub>`
+* `<sup>`
+* `<svg>`
+* `<textarea>`
+* `<time>`
+* `<var>`
+* `<video>`
+* `<wbr>` 
+* "texte brut"
+
+##### Contenu intégré
+Pour définir un contenu intégré i.e. provenant d'un autre language de balisage.
+
+Exemples :
+* `<audio>`
+* `<canvas>`
+* `<embed>`
+* `<iframe>`
+* `<img>`
+* `<math>`
+* `<object>`
+* `<svg>`
+* `<video>`.
+
+##### Contenu interactif
+Pour les éléments sur lesquels l'user peur intéragir.
+
+Exemples :
+* `<a>`
+* `<button>`
+* `<details>`
+* `<embed>`
+* `<iframe>`
+* `<keygen>`  
+* `<label>`
+* `<select>`
+* `<textarea>`
+
+##### Contenu tangible
+Est dit tangible tout contenu qui n'est ni vide, ni caché
 
 
+##### Contenu associé aux formulaires
+Tout ce qui se trouve dans la balise `<form>`
 
+Exemples :
+* `<button>`
+* `<fieldset>`
+* `<input>`
+* `<keygen>`
+* `<label>`
+* `<meter>`
+* `<object>`
+* `<output>`
+* `<progress>`
+* `<select>`
+* `<textarea>`
+
+Sous catégories liés aux formulaires :
+
+###### listed (éléments listés)
+Exemples :
+* `<button>`
+* `<fieldset>`
+* `<input>`
+* `<keygen>`  
+* `<object>`
+* `<output>`
+* `<select>`
+* `<textarea>`
+
+###### labelable (éléments étiquetables)
+Exemples :
+* `<button>`
+* `<input>`
+* `<keygen>`  
+* `<meter>`
+* `<output>`
+* `<progress>`
+* `<select>`
+* `<textarea>`
+
+###### submittable (éléments participants à l`envoi du formulaire)
+Exemples :
+* `<button>`
+* `<input>`
+* `<keygen>`  
+* `<object>`
+* `<select>`
+* `<textarea>`
+
+###### resettable (éléments de ré-initialisation)
+Exemples :
+* `<input>`
+* `<keygen>` 
+* `<output>`
+* `<select>`
+* `<textarea>`
+
+#### Type contenu (ancienne classification)
+
+On distianguais 2 types de balises : les balises `inline` et `block`.
+
+Les balises `inline` sont une ligne ou un éléments de ligne.
+Les balises  `block` sont des sections qui un comportement en deux dimensions (2D) et ont donc une longeur et une largeur.
+
+Même si impropre en HTML5, elles sont encore utilisées car facile à comprendre pour définir le comportment de couples de balises avec le CSS.
+
+## Bases
