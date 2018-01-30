@@ -23,4 +23,31 @@
 
 #### Documentation JavaScript
 
+JQuery
+
+Bootstrap
+
+LESS
+
+SASS
+
+Cobol
+
+Fortan
+
+C
+
+C++
+
+C#
+
+Java
+
+PHP
+
+Python
+
+Ruby
+
+Pearl
 
