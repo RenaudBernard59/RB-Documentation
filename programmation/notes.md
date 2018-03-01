@@ -2,10 +2,7 @@
 
 ## Algorithmique
 ### Introduction
-
-
-### Hello World
-
+### Afficher : Hello World
 ```PSeudoCode
 afficher "Hello World!";
 ```
@@ -61,7 +58,7 @@ public static void main(String[] args){
 }
 ```
 
-### Commentaires
+### Ecrire des Commentaires
 ```PSeudoCode
 Généralement
 // Une Seule Ligne
@@ -117,9 +114,13 @@ Plusieurs
 lignes */
 ```
 
+```SQL
+Contenu
+```
+
 ### Variables
-#### Déclaration de variables
-```PSeudoCode
+#### Déclaration de Variables
+```PseudoCode
 var TYPE maVariable := Valeur;
 var TYPE maVariable <- Valeur;
 ```
@@ -144,9 +145,13 @@ TYPEVAR maVariable = Valeur;
 TYPEVAR maVariable = Valeur;
 ```
 
-#### Déclaration de constantes
+#### Déclaration de Constantes
 const maCst = val TYPE
 const pi = 3.14 REAL
+```PseudoCode
+
+
+```
 
 ```JavaScript
 Contenu
@@ -170,37 +175,49 @@ Contenu
 
 
 #### Types de variables
-##### Variables Numériques
+##### Variables de TypeNumériques
 * Entier | INT | 0, 4, 12, 1234, 9974116546
-* Réel | REAL | 1.5, 3.1416 | 0.0000000000002 | 4589.166894109
-//Entier (Entier Naturel N)
+* Réel | FLOAT | 1.5, 3.1416 | 0.0000000000002 | 4589.166894109
 
-//Entier Négatif (Entier Naturel N négatifs)
+```PseudoCode
+//Entier (Entier Naturel N)
+var INT maVar = 1234;
 
 //Petits Entier | Small
+var SHORT maVar = 4;
 
 //Long Entier | Long
+var LONG maVar = 9974116546;
 
 //Flottant (Réel R)
-
-//Flottant Négatif (Réel R négatif)
+var FLOAT maVar = 1.5;
 
 //Grand Flottant | Double
-
-
-
-
+var DOUBLE maVar = 4589.166894109
+```
 
 ```JavaScript
-Contenu
+//Entier (Entier Naturel N)
+var unEntier = 456;
+
+//Flottant (Réel R)
+var unFlotant = 1.414;
 ```
 
 ```Python
-Contenu
+//Entier (Entier Naturel N)
+unEntier = 456;
+
+//Flottant (Réel R)
+unFlotant = 1.414;
 ```
 
 ```PHP
-Contenu
+//Entier (Entier Naturel N)
+$unEntier = 456;
+
+//Flottant (Réel R)
+$unFlotant = 1.414;
 ```
 
 ```C
@@ -208,31 +225,65 @@ Contenu
 ```
 
 ```Java
-Contenu
+//Très-Petits Entier (1 octet) (type simple)
+byte maVar;
+
+//Petits Entier (2 octet) (type simple)
+short maVar;
+
+//Entier (4 octet) (type simple)
+int maVar;
+
+//Grand Entier(8 octet) (type simple)
+long maVar;
+
+//Flottant (type simple)
+float maVar;
+
+//Grand Flottant (type simple)
+double maVar;
+
+//Grand Entier (type Objet import from Math)
+BigInteger maVar;
+
+//Grand Décimal (type Objet from Math)
+BigDecimal maVar;
+
+//Wrappers Byte | Short | Integer | Long ...
+
 ```
 
+```SQL
+Contenu
+```
 ##### Variables Textuelles
-* Carctère | CAR | 'a', 't', 'm', 'G', '&', '?''
+* Carctère | CHAR | 'a', 't', 'm', 'G', '&', '?''
 * Chaine de caractère | STR | 'Hello', 'World', 'Hello World!', 'Coucou \n Beuh!'
 
 //Caractère |Caractere
 
-
 //Chaîne de Caractère | String
 
+```PseudoCode
 
 
-
+```
 ```JavaScript
-Contenu
+//Chaîne de Caractère | String
+var maChaineDeCaractere = "Mon message !";
+var maChaineDeCaractere = 'Mon message !';
 ```
 
 ```Python
-Contenu
+//Chaîne de Caractère | String
+maChaineDeCaractere = "Mon message !";
+maChaineDeCaractere = 'Mon message !';
+maChaineDeCaractere = """Mon message !""";
 ```
 
 ```PHP
-Contenu
+$maChaineDeCaractere = "Mon message !";
+$maChaineDeCaractere = 'Mon message !';
 ```
 
 ```C
@@ -240,24 +291,47 @@ Contenu
 ```
 
 ```Java
+//Caractère |Caractere (type simple)
+char maVar;
+
+//Chaîne de Caractère | String (type Objet)
+String maVar;
+```
+
+```SQL
 Contenu
 ```
+
+##### Variables Spécialisés
+
+
 
 
 ##### Variables Booléennes
 * Vrais | TRUE
 * Faux | FALSE
 
+```PseudoCode
+
+
+```
+
 ```JavaScript
-Contenu
+var unBooleen = true;
+var unBooleen = false;
+var nonDefini = undefined; 
 ```
 
 ```Python
-Contenu
+unBooleen = True;
+unBooleen = False;
+nonDefini = ... 
 ```
 
 ```PHP
-Contenu
+$unBooleen = true;
+$unBooleen = false;
+$nonDefini = NULL;
 ```
 
 ```C
@@ -265,14 +339,47 @@ Contenu
 ```
 
 ```Java
+boolean maVar = true;
+boolean maVar = false;
+```
+
+```SQL
 Contenu
 ```
 
 ##### Variables Tableau
 VAR identificateur :
+```PseudoCode
+
+
+```
 
 ```JavaScript
-Contenu
+//Ancienne syntaxe de tableau
+var tableau = new Array();
+
+//Avec du contenu
+var tableau = new Array(43, 12.5, "a", "azerty", "42");
+
+//Autre notation
+var tableau = []
+
+//Autre notation avec du contenu
+var tableau = [43, 12.5, "a", "azerty", "42"];
+
+//3ème applet
+tableau[2] = "a";
+
+//Tableau associatif
+var tableauAssociatif = new Array();
+scores["Physique"] = 12;
+scores["Chimie"] = 14;
+scores["Maths"] = 11;
+scores["SVT"] = 18;
+scores["Français"] = 8;.
+
+//Accès au tableau
+tableauAssociatif['SVT'] = 18;
 ```
 
 ```Python
@@ -291,18 +398,88 @@ Contenu
 Contenu
 ```
 
+```SQL
+Contenu
+```
+
+##### Objets littéraux
+```PseudoCode
 
 
+```
 
+```JavaScript
+//Créer un objet
+var monObjet = {
+Physique: 12,
+Chimie: 14,
+Maths: 11,
+SVT: 18,
+Français: 8
+}
+
+```
+
+```Python
+Contenu
+```
+
+```PHP
+Contenu
+```
+
+```C
+Contenu
+```
+
+```Java
+Contenu
+```
+
+```SQL
+Contenu
+```
 ### Expressions
 * Opérateurs arithmétique + - * / %
 * Opérateurs logiques NON ! OU || et &&
 * Opérateurs relationnels = < > <= => 
 * Opérateurs sur les chaines & © concaténation
 Alt+0169
+```PseudoCode
+
+
+```
 
 ```JavaScript
-Contenu
+//Addition
+
+//Soustraction
+
+//Multiplication
+
+//Division
+
+//Modulo
+
+//Logique OU
+
+//Logique ET
+
+//Logique NON
+
+//Est égal
+
+//Est strictement égal
+
+//Est inférieur
+
+//Est supérieur
+
+//Est inférieur ou égal
+
+//Est supérieur ou égal
+
+
 ```
 
 ```Python
@@ -334,6 +511,11 @@ Table de vérité
 | T | F | F | T |
 | F| T | F | T |
 | F | F | F | F |
+
+```PseudoCode
+
+
+```
 
 ```JavaScript
 Contenu
@@ -391,12 +573,28 @@ DEBUT
     FINSI
 FIN
 
+```PseudoCode
+
+
+```
+
 ```JavaScript
 Contenu
 ```
 
 ```Python
-Contenu
+if a > b:
+    print(resultat)
+else:
+    print(resultat)
+
+if a > b:
+    print(resultat)
+elif a < b:
+    print(resultat)
+else:
+    print(resultat)
+
 ```
 
 ```PHP
@@ -425,6 +623,11 @@ POUR compteur ALLANT DE début A fin FAIRE
     instruction
 FIN POUR
 
+```PseudoCode
+
+
+```
+
 ```JavaScript
 Contenu
 ```
@@ -452,8 +655,20 @@ DEBUT
     Retourner(resultat)
 FIN
 
+```PseudoCode
+
+
+```
+
 ```JavaScript
-Contenu
+function maFonction(arg1, arg2,...)
+function maFonction(arg1, arg2,...) {
+    //Le code de ma fonction
+    return resultat //Eventuel
+}
+
+var uneFonction = maFonction(arg)
+
 ```
 
 ```Python
@@ -524,5 +739,7 @@ Contenu
 Contenu
 ```
 
-
+```SQL
+Contenu
+```
 
